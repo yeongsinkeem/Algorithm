@@ -1,4 +1,5 @@
 from typing import Any
+import sys
 
 class Stack:
     def __init__(self, N : int) -> None:
@@ -8,7 +9,6 @@ class Stack:
         self.ptr = 0
 
     def size(self) -> int:
-        print(self.ptr)
         return self.ptr
 
     def push(self, value: Any) -> None:
@@ -17,42 +17,32 @@ class Stack:
 
     def pop(self) -> Any:
         if self.ptr == 0:
-            print("-1")
             return -1
         else:
             self.ptr -= 1
-            print(self.stk[self.ptr])
             return self.stk[self.ptr]
 
-    def empty(self) -> bool:
-        if self.ptr == 0:
-            print("1")
-            return True
-        else :
-            print("0")
-            return False
+    def empty(self) -> int:
+        return 1 if self.ptr == 0 else 0
 
     def top(self) -> Any:
-        if self.ptr == 0:
-            print("-1")
-        else:
-            print(self.stk[self.ptr - 1])
-            return self.stk[self.ptr - 1]
+        return -1 if self.ptr == 0 else self.stk[self.ptr-1]
 
-N = int(input())
+N = int(sys.stdin.readline().rstrip())
 s = Stack(N)
-for i in range(N):
-    order = input().strip()
-    if order.startswith("push"):
-        value = int(order.split()[1])
+
+for _ in range(N):
+    order = sys.stdin.readline().rstrip().split()
+    if order[0] == "push":
+        value = int(order[1])
         s.push(value)
-    elif order == "pop":
-        s.pop()
-    elif order == "size":
-        s.size()
-    elif order == "empty":
-        s.empty()
-    elif order == "top":
-        s.top()
+    elif order[0] == "pop":
+        print(s.pop())
+    elif order[0] == "size":
+        print(s.size())
+    elif order[0] == "empty":
+        print(s.empty())
+    elif order[0] == "top":
+        print(s.top())
 
 
