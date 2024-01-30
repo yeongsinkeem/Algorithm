@@ -14,11 +14,11 @@ class Queue:
         self.ptr += 1
 
     def pop(self) -> int:
-        if (self.ptr2) >= (self.ptr):
+        if (self.ptr2) >= (self.ptr): #push보다 pop을 더 많이 했다면
             return -1
         else:
             self.ptr2 +=1
-            return self.queue[self.ptr2 - 1]
+            return self.queue[self.ptr2 - 1]   # 이미 ptr2를 증가해준 상태니 -1
 
     def size(self) -> int:
         if (self.ptr - self.ptr2) <= 0 :
@@ -32,7 +32,7 @@ class Queue:
         else:
             return 0
 
-    def front(self) -> int:
+    def front(self) -> int:      # front - pop과 관련
         if self.empty() == 0:    # 비어있지 않다면
             return self.queue[self.ptr2]
         else:
@@ -40,7 +40,7 @@ class Queue:
 
     def back(self) -> int:
         if self.empty() == 0:
-            return self.queue[self.ptr-1]
+            return self.queue[self.ptr-1]   # back - push와 관련
         else:
             return -1
 
