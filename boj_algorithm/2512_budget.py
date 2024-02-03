@@ -21,4 +21,3 @@ else :
     #minmin.append(minregion // (len(region) - count) + avgregion)
     #print(max(minmin))
     print(minregion // (len(region) - count) + avgregion)
-
