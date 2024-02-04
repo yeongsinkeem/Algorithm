@@ -1,23 +1,24 @@
 import sys
 N = int(sys.stdin.readline())
-minregion = 0   # 상한선보다 작은 애들의 차액값
-#minmin = []
-count = 0   # 상한선보다 작은 애들 얼마나 있는지
 region = list(map(int, input().split()))
 total = int(sys.stdin.readline())
 
 if sum(region) <= total:
     print(max(region))
-else :
-    avgregion = total // len(region)
+else :  # 조정이 필요한 상황이라면
+    region.sort(reverse=True)
     for i in range(N):
-        if region[i] < avgregion:
-            minregion += avgregion - region[i]
-            count += 1
-            #minmin.append(region[i])
+        newlimit = region[i]
+        count = 0  # 상한선보다 작은 애들 얼마나 있는지
+        for j in range(i):
+            if region[j] < newlimit:   # 만약 요소가 상한액보다 작다면
+                continue
+            else :
+                region[j] = newlimit
+                count += 1
+        if sum(region) <= total:
+            newlimit += (total - sum(region)) // count
+            print(newlimit)
+            break
         else :
             continue
-    print(minregion)
-    #minmin.append(minregion // (len(region) - count) + avgregion)
-    #print(max(minmin))
-    print(minregion // (len(region) - count) + avgregion)
