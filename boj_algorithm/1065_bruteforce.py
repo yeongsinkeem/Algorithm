@@ -17,4 +17,5 @@ for j in range(len(lst) - 1):
             flag = 1
     else :
         print("false")
+
 # 여기까지 진행하면 특정 수가 "한수"인지 아닌지 판별
