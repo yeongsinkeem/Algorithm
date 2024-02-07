@@ -1,12 +1,12 @@
 import sys
 
-def calculate_cost_with_limit(region, limit):
+def calculate_cost_with_limit(region, limit):   # limit으로 갱신된 값들로 total 계산
     total_cost = 0
     for r in region:
         total_cost += min(r, limit)
     return total_cost
 
-def binary_search(region, total):
+def binary_search(region, total):   #이진탐색
     low, high = 0, max(region)
     while low <= high:
         mid = (low + high) // 2
