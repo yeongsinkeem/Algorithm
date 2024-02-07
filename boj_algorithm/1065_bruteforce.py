@@ -1,21 +1,27 @@
-N = int(input())
-digit = len(str(N))
-lst = []
-digitLst = []   # 각각의 자릿수를 넣는 리스트
-flag = 0
+def func(a): # 한수 판정 함수
+    digit = len(str(a))
+    lst = []
+    digitLst = []  # 각각의 자릿수를 넣는 리스트
+    flag = 0
 
-for j in str(N):
-    digitLst.append(j)
-
-for j in range(0, len(digitLst)-1):
-    lst.append(int(digitLst[j]) - int(digitLst[j+1]))
-
-for j in range(len(lst) - 1):
-    if lst[j] == lst[j+1]:
-        if flag == 0:
-            print("true")
-            flag = 1
+    if digit == 1 or digit == 2:
+        return True
     else :
-        print("false")
+        for j in str(a):
+            digitLst.append(j)
 
-# 여기까지 진행하면 특정 수가 "한수"인지 아닌지 판별
+        for j in range(0, len(digitLst)-1):
+            lst.append(int(digitLst[j]) - int(digitLst[j+1]))
+
+        for j in range(len(lst) - 1):
+            if lst[j] == lst[j+1]:
+                return True
+            if lst[0] != lst[len(lst)-1]:
+                return False
+
+N = int(input())
+count = 0
+for i in range(1, N+1):
+    if func(i) == True:
+        count += 1
+print(count)
