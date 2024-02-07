@@ -8,7 +8,6 @@ def calculate_cost_with_limit(region, limit):
 
 def binary_search(region, total):
     low, high = 0, max(region)
-
     while low <= high:
         mid = (low + high) // 2
         cost_with_limit = calculate_cost_with_limit(region, mid)
@@ -17,7 +16,6 @@ def binary_search(region, total):
             low = mid + 1
         else:
             high = mid - 1
-
     return high
 
 def main():
