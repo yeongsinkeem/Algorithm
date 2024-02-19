@@ -9,8 +9,8 @@ answer = []
 # 8 * 8 크기의 체스판 움직이기
 for row in range(N - 7):
     for col in range(M - 7):
-        startB = 0  # 0, 2, 4, 6이 검정색
-        startW = 0 # 0, 2, 4, 6이 흰색
+        startB = 0
+        startW = 0
         for i in range(row, row + 8):
             for j in range(col, col + 8):
                 if ( i + j ) % 2 == 0:
