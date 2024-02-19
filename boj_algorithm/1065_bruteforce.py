@@ -1,4 +1,4 @@
-def func(a): # 한수 판정 함수
+def func(a): # 한수인지 판정하는 함수
     digit = len(str(a))
     lst = []
     digitLst = []  # 각각의 자릿수를 넣는 리스트
