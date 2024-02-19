@@ -8,10 +8,8 @@ def func(a): # 한수인지 판정하는 함수
     else :
         for j in str(a):
             digitLst.append(j)
-
         for j in range(0, len(digitLst)-1):
             lst.append(int(digitLst[j]) - int(digitLst[j+1]))
-
         for j in range(len(lst) - 1):
             if lst[j] == lst[j+1]:
                 return True
