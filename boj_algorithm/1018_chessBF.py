@@ -25,6 +25,6 @@ for row in range(N - 7):
                         startW += 1
         answer.append(startB)
         answer.append(startW)
-#print("answer 값은", answer)
+
 print(min(answer))
 
