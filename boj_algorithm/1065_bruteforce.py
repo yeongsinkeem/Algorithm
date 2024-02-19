@@ -2,7 +2,6 @@ def func(a): # 한수 판정 함수
     digit = len(str(a))
     lst = []
     digitLst = []  # 각각의 자릿수를 넣는 리스트
-    flag = 0
 
     if digit == 1 or digit == 2:
         return True
