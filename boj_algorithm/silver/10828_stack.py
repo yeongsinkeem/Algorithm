@@ -3,7 +3,6 @@ import sys
 
 class Stack:
     def __init__(self, N : int) -> None:
-        # 스택 초기화
         self.stk = [None] * N
         self.capacity = N
         self.ptr = 0
