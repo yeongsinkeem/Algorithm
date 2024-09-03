@@ -3,10 +3,10 @@ class Solution {
         // 1. 모든 대문자를 소문자로 변환
         String answer = new_id.toLowerCase();
         // 2. 허용되지 않는 문자 제거
-        answer = answer.replaceAll("[~!@#$%^&*()=+\\[\\]{}:?]", "");
+        answer = answer.replaceAll("[^a-z0-9-_.]*", "");
         // 3. 여러 개의 점을 하나로 변환
         answer = answer.replaceAll("\\.{2,}", ".");
-        // 4. 처음이나 끝에 마침표가 위치하면 제거 
+        // 4. 처음이나 끝에 마침표가 위치하면 제거
         if (answer.startsWith(".")) {
             answer = answer.substring(1);
         }
