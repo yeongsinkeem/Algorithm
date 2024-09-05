@@ -10,6 +10,7 @@ class Solution {
         List <int[]> filteredData = new ArrayList<>();
         if (ext.equals("code")) {
             for (int i = 0; i < data.length; i++) {
+                // val_ext보다 작은 값들만 저장
                 if ( data[i][0] < val_ext ) {
                     filteredData.add(data[i]);
                 }
