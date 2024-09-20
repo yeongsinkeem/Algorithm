@@ -3,28 +3,18 @@ import java.util.*;
 class Solution {
     public String[] solution(String[] strings, int n) {
         String[] answer = new String[strings.length];
-        HashMap<Character, ArrayList<String>> map = new HashMap<>();
-
-        // 1. [ "문자", ["문자열"] ]  형식의 hashMap 생성
-        for (int j = 0; j < strings.length; j++) {
-            ArrayList<String> lst = new ArrayList<String>();
-            for (int k = j+1; k <= strings.length; k++) {
-                if (strings[j].charAt(n) == strings[k].charAt(n)) {
-                    lst.add(strings[j], strings[k]);
-                }
-                else {
-                    lst.add(strings[j]);
-                }
-            }
-            map.put(strings[i].charAt(n), lst);
-        }
-        // 2. Key로 정렬
-        List<Character> keySet = new ArrayList<>(map.keySet());
-        Collections.sort(keySet);
+        // strings 배열 리스트로 변환 > collections.sort 함수 사용 위해
+        List<String> words = Arrays.asList(strings);
+        Collections.sort(words, (o1, o2) -> {
+            int result = o1.charAt(n) - o2.charAt(n);
+            if (result == 0)
+                return o1.compareTo(o2);
+            return result;
+        });
 
         int i = 0;
-        for (char c : keySet) {
-            answer[i] = map.get(c);
+        for (String word : words) {
+            answer[i] = word;
             i++;
         }
 
